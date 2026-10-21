@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stores · Admin Panel</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+  <header class="topbar">
+    <label for="nav-toggle" class="hamburger" aria-label="Open or close menu">
+      <span></span><span></span><span></span>
+    </label>
+    <a href="/" class="brand">Admin Panel</a>
+    <span class="user">Admin</span>
+  </header>
+
+  <nav class="sidebar" aria-label="Main menu">
+    <ul class="menu">
+      <li><a href="/">Dashboard</a></li>
+      <li><a href="/stores" aria-current="page">Stores</a></li>
+    </ul>
+  </nav>
+  
+  <label for="nav-toggle" class="overlay" aria-hidden="true"></label>
+
+  <main class="content">
+        <div class="page-head">
+      <div>
+        <h1 class="page-title">Stores</h1>
+        <p class="page-sub">Manage the stores listed on your platform.</p>
+      </div>
+      <a href="/stores/add" class="btn btn-primary btn-add">+ Add store</a>
+    </div>
+
+
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Store name</th>
+            
+            <th class="col-actions">Actions</th>
+          </tr>
+        </thead>
+        
+        
+        <tbody>
+          {%for store in stores%}
+          <tr>
+            <td><div class="store-cell"><span class="store-icon" role="img" aria-label="Myntra logo"><img src="{{store.store_icon}}" width="32" height="32" alt=""></span><span class="store-name">{{store.store_name | title}}</span></div></td>
+            <td class="col-actions"><div class="actions">
+              <a href="/stores/update/{{store.id}}" class="btn btn-primary">Update</a>
+              <a href="/stores/delete/{{store.id}}" class="btn btn-danger">Delete</a>
+            </div></td>
+          </tr>
+          {%endfor%}
+          <tr>
+            <!-- <td><div class="store-cell"><span class="store-icon" role="img" aria-label="Ajio logo"><img src="logos/Ajio.png" alt=""></span><span class="store-name">Ajio</span></div></td>
+            <td class="col-actions"><div class="actions">
+              
+              <button type="button" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-danger">Delete</button>
+            </div></td>
+          </tr> -->
+          
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

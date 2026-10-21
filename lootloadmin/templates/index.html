@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Admin Panel</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+  <header class="topbar">
+    <label for="nav-toggle" class="hamburger" aria-label="Open or close menu">
+      <span></span><span></span><span></span>
+    </label>
+    <a href="/" class="brand">Admin Panel</a>
+    <span class="user">Admin</span>
+  </header>
+
+  <nav class="sidebar" aria-label="Main menu">
+    <ul class="menu">
+      <li><a href="/" aria-current="page">Dashboard</a></li>
+      <li><a href="/stores">Stores</a></li>
+    </ul>
+  </nav>
+  <label for="nav-toggle" class="overlay" aria-hidden="true"></label>
+
+  <main class="content">
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-sub">A quick look at your data.</p>
+
+    <section class="cards">
+      <a href="/stores" class="card">
+        <div class="card-label">Total stores</div>
+        <div class="card-value">{{store_count}}</div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

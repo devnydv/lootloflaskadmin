@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add store · Admin Panel</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+  <header class="topbar">
+    <label for="nav-toggle" class="hamburger" aria-label="Open or close menu">
+      <span></span><span></span><span></span>
+    </label>
+    <a href="/" class="brand">Admin Panel</a>
+    <span class="user">Admin</span>
+  </header>
+
+  <nav class="sidebar" aria-label="Main menu">
+    <ul class="menu">
+      <li><a href="/">Dashboard</a></li>
+      <li><a href="/stores" aria-current="page">Stores</a></li>
+    </ul>
+  </nav>
+  <label for="nav-toggle" class="overlay" aria-hidden="true"></label>
+
+  <main class="content">
+    <h1 class="page-title">Add store</h1>
+    <p class="page-sub">Create a new store with a name and icon.</p>
+
+    <div class="panel form-panel">
+      <form action="/stores/add" method="post">
+        <div class="field">
+          <label for="store-name">Store name</label>
+          <input type="text" id="store-name" name="store_name" placeholder="e.g. Myntra" required>
+        </div>
+        <div class="field">
+          <label for="icon-url">Icon URL</label>
+          <input type="url" id="icon-url" name="icon_url" placeholder="https://example.com/logo.png">
+          <p class="field-hint">Link to a rectangular logo image.</p>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
